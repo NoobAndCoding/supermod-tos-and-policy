@@ -1,16 +1,22 @@
-import express from "express";
-import path from "path";
-
+const express = require('express');
+const path = require('path');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const rootPath = path.join(__dirname, '..'); 
+const clientPath = path.join(rootPath, 'client');
+const assetsPath = path.join(clientPath, 'assets');
 
-app.use(express.static(path.resolve("../client")));
+app.use('/assets', express.static(assetsPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("../client/index.html"));
+app.use(express.static(clientPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientPath, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  console.log(`Client path: ${clientPath}`);
+  console.log(`Assets path: ${assetsPath}`);
 });
