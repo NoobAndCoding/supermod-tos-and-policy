@@ -1,14 +1,16 @@
 import express from "express";
-import { createRequestHandler } from "@react-router/node";
-import * as build from "./build/server/index.js";
+import path from "path";
 
 const app = express();
 
-app.use(express.static("build/client"));
+const PORT = process.env.PORT || 3000;
 
-app.all("*", createRequestHandler({ build }));
+app.use(express.static(path.resolve("build/client")));
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`✅ Running on port ${port}`);
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("build/client/index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
