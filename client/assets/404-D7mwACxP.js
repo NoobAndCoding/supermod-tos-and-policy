@@ -1,0 +1,1 @@
+import{w as o,q as s}from"./chunk-ZYFC6VSF-DiMxY9uO.js";const t=()=>s.jsxs("div",{className:"NotFoundContainer",children:[s.jsx("h1",{children:"404 - Path Not Found"}),s.jsxs("p",{children:["Active Paths: ",s.jsx("br",{})," /policies ",s.jsx("br",{})," /tos"]})]}),r=o(t);export{r as default};
