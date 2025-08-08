@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+.policies-header {
+    text-align: center;
+}
+
+.policies-container {
+    padding-inline: 2rem;
+    background-color: rgb(182, 182, 182);
+    overflow: hidden;
+    justify-content: center;
+}
